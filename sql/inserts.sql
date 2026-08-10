@@ -2,41 +2,39 @@
 
 USE inventario;
 
-INSERT INTO proveedores (empresa, telefono, email_proovedor)
+INSERT INTO marcas (id, nombre_marca, email_proovedor)
 VALUES 
-('Beauty Pip', '1155426998', 'contacto@beautypip.com'), 
-('GlowClaw', '1165983222', 'contacto@glowclaw.com'), 
-('Ride', '1133335656', 'contacto@ride.com'), 
-('Lioncourt', '1122544563', 'contacto@lioncourt.com'),
-('RoxyFashion', '1156565928', 'contacto@roxyfashion.com');
+('011', 'Noto', 'contacto@noto.com'), 
+('012', 'Altitud 1800', 'contacto@alltitud1800.com'), 
+('013', 'Pausa Alquimia', 'contacto@pausaalquimia.com'), 
+('014', 'Lioncourt', 'contacto@lioncourt.com'),
+('015', 'Pararelo Cero', 'contacto@paralelocero.com');
 
-INSERT INTO categorias (nombre_categoria)
+INSERT INTO categorias (id, nombre_categoria)
 VALUES
-('Mascara de pestañas'), 
-('Labiales'), 
-('sombras de ojos'),
-('Rubores'), 
-('Crema facial'),
-('Brochas'),
-('Esmalte de uñas'),
-('Tintura para el cabello'),
-('Perfumes');
+('001', 'Cafe en Grano y Molido'), 
+('003', 'Metodos de Extraccion'), 
+('004', 'Molinos y Herramientas'),
+('005', 'Vajillas y Estilo de Vida'), 
+('006', 'Mantenimiento y Limpieza');
 
-INSERT INTO usuarios (nombre, clave, rol)
+INSERT INTO subcategorias (id, nombre_subcategoria)
 VALUES
-('Azul', '12345', 'ADMIN'),
-('Guada', 'abc123', 'EMPLEADO'),
-('Vale', '101010', 'EMPLEADO');
+('101', 'Origen Unico'),
+('102', 'Blends de la Casa'),
+('103', 'Descafeinado'),
+('201', 'Cafeteras de Goteo/Filtro'),
+('202', 'De Presion'),
+('203', 'Filtros de Papel'),
+('301', 'Molinos de Cafe'),
+('302', 'Basculas y Temporizadores'),
+('303', 'Jarras y Termometros'),
+('401', 'Tazas y Vasos'),
+('402', 'Termos y Vasos de Viaje'),
+('403', 'Almacenamiento')
+('501', 'Descalificadores'),
+('502','Cepillos y Limpiadores');
 
-INSERT INTO productos (nombre, precio, stock, proveedor_id, categoria_id)
+INSERT INTO productos (id, nombre, precio, marcas_id, categoria_id, subcategoria_id)
 VALUES
-('Rimel Rosa', 10100, 20, 1, 1),
-('Rimel Negro', 10000, 25, 4, 1),
-('Paleta Hello Kitty', 4000, 50, 3, 3),
-('Paleta Capibara', 8000, 50, 1, 3),
-('Paleta Vampiro', 12000, 10, 4, 3),
-('Gloss Rosa', 800, 20, 4, 2),
-('Labial Violeta', 1000, 100, 2, 2),
-('Crema AntiAge', 25000, 8, 5, 5),
-('Tintura Cobre', 4000, 10, 4, 8),
-('Esmalte Dorado', 2000, 90, 3, 7);
+// tengo q poner 42 productos //
