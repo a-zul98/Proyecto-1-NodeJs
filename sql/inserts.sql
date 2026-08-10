@@ -8,7 +8,9 @@ VALUES
 ('012', 'Altitud 1800', 'contacto@alltitud1800.com'), 
 ('013', 'Pausa Alquimia', 'contacto@pausaalquimia.com'), 
 ('014', 'Lioncourt', 'contacto@lioncourt.com'),
-('015', 'Pararelo Cero', 'contacto@paralelocero.com');
+('015', 'Pararelo Cero', 'contacto@paralelocero.com'),
+('016', 'Alt 4', 'contacto@alt4.com'),
+('017', 'Migo', 'contacto@migo.com');
 
 INSERT INTO categorias (id, nombre_categoria)
 VALUES
