@@ -7,4 +7,4 @@ Instalación
    npm install
 3. Ejecutar la aplicación.
   node app.js
-   La inicialización de la base de datos se realiz automáticamente luego de ejecutar la aplicación. 
+   La inicialización de la base de datos se realiza automáticamente luego de ejecutar la aplicación. 
