@@ -1,42 +1,53 @@
 
-
+CREATE DATABASE IF NOT EXISTS inventario;
 USE inventario;
 
-INSERT INTO marcas (id, nombre_marca, email_proovedor)
-VALUES 
-('011', 'Noto', 'contacto@noto.com'), 
-('012', 'Altitud 1800', 'contacto@alltitud1800.com'), 
-('013', 'Pausa Alquimia', 'contacto@pausaalquimia.com'), 
-('014', 'Lioncourt', 'contacto@lioncourt.com'),
-('015', 'Pararelo Cero', 'contacto@paralelocero.com'),
-('016', 'Alt 4', 'contacto@alt4.com'),
-('017', 'Migo', 'contacto@migo.com');
+DROP TABLE IF EXISTS productos;
+DROP TABLE IF EXISTS subcategorias;
+DROP TABLE IF EXISTS marcas;
+DROP TABLE IF EXISTS categorias;
+DROP TABLE IF EXISTS usuarios;
 
-INSERT INTO categorias (id, nombre_categoria)
-VALUES
-('001', 'Cafe en Grano y Molido'), 
-('003', 'Metodos de Extraccion'), 
-('004', 'Molinos y Herramientas'),
-('005', 'Vajillas y Estilo de Vida'), 
-('006', 'Mantenimiento y Limpieza');
 
-INSERT INTO subcategorias (id, nombre_subcategoria)
-VALUES
-('101', 'Origen Unico'),
-('102', 'Blends de la Casa'),
-('103', 'Descafeinado'),
-('201', 'Cafeteras de Goteo/Filtro'),
-('202', 'De Presion'),
-('203', 'Filtros de Papel'),
-('301', 'Molinos de Cafe'),
-('302', 'Basculas y Temporizadores'),
-('303', 'Jarras y Termometros'),
-('401', 'Tazas y Vasos'),
-('402', 'Termos y Vasos de Viaje'),
-('403', 'Almacenamiento')
-('501', 'Descalificadores'),
-('502','Cepillos y Limpiadores');
+CREATE TABLE marcas (
+    id VARCHAR (36) PRIMARY KEY NOT NULL,
+    nombre_marca VARCHAR(100) NOT NULL,    
+    email_proveedor VARCHAR(100)
+);
 
-INSERT INTO productos (id, nombre, precio, marcas_id, categoria_id, subcategoria_id)
-VALUES
-// tengo q poner 42 productos //
+CREATE TABLE categorias (
+    id VARCHAR (36) PRIMARY KEY NOT NULL,
+    nombre_categoria VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE subcategorias (
+    id VARCHAR (36) PRIMARY KEY NOT NULL,
+    nombre_subcategoria VARCHAR(100) NOT NULL,
+    categoria_id VARCHAR (36) NOT NULL,
+    
+    CONSTRAINT fk_subcategoria_categoria
+        FOREIGN KEY (categoria_id) REFERENCES categorias(id)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(10) NOT NULL,
+    clave VARCHAR(500) NOT NULL,
+    rol ENUM('ADMIN','EMPLEADO') NOT NULL
+);
+
+CREATE TABLE productos (
+    id VARCHAR (36) PRIMARY KEY NOT NULL,
+    nombre VARCHAR(100) NOT NULL,
+    precio DECIMAL(10,2) NOT NULL,
+    stock INT NOT NULL,
+  marcas_id VARCHAR(36) NOT NULL,
+    subcategoria_id VARCHAR(36) NOT NULL,
+    
+    CONSTRAINT fk_producto_marcas 
+        FOREIGN KEY (marcas_id) REFERENCES marcas(id) ON DELETE CASCADE,
+        
+    CONSTRAINT fk_producto_subcategoria 
+        FOREIGN KEY (subcategoria_id) REFERENCES subcategorias(id) ON DELETE CASCADE
+);
