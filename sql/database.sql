@@ -6,8 +6,6 @@ DROP TABLE IF EXISTS productos;
 DROP TABLE IF EXISTS subcategorias;
 DROP TABLE IF EXISTS marcas;
 DROP TABLE IF EXISTS categorias;
-DROP TABLE IF EXISTS usuarios;
-
 
 CREATE TABLE marcas (
     id VARCHAR (36) PRIMARY KEY NOT NULL,
@@ -28,13 +26,6 @@ CREATE TABLE subcategorias (
     CONSTRAINT fk_subcategoria_categoria
         FOREIGN KEY (categoria_id) REFERENCES categorias(id)
         ON DELETE CASCADE
-);
-
-CREATE TABLE usuarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(10) NOT NULL,
-    clave VARCHAR(500) NOT NULL,
-    rol ENUM('ADMIN','EMPLEADO') NOT NULL
 );
 
 CREATE TABLE productos (
