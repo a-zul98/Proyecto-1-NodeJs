@@ -84,10 +84,3 @@ VALUES
 ('MAN-502-002', 'Limpiador de Muelas de Molino Urnex Grindz',20, 24.00, '017', '502'),
 ('MAN-502-003', 'Paños de Microfibra para Barista Rhinowares (Pack x3)',20, 14.00, '017', '502');
 
-
-INSERT INTO usuarios (nombre, clave, rol)
-VALUES
-('Azul', '12345', 'ADMIN'),
-('Marcos', 'admin2026', 'ADMIN'),
-('Guada', 'abc123', 'EMPLEADO'),
-('Vale', '101010', 'EMPLEADO');
