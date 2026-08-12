@@ -2,10 +2,13 @@
 CREATE DATABASE IF NOT EXISTS inventario;
 USE inventario;
 
+DROP TABLE IF EXISTS historial;
 DROP TABLE IF EXISTS productos;
 DROP TABLE IF EXISTS subcategorias;
 DROP TABLE IF EXISTS marcas;
 DROP TABLE IF EXISTS categorias;
+
+
 
 CREATE TABLE marcas (
     id VARCHAR (36) PRIMARY KEY NOT NULL,
@@ -28,6 +31,7 @@ CREATE TABLE subcategorias (
         ON DELETE CASCADE
 );
 
+
 CREATE TABLE productos (
     id VARCHAR (36) PRIMARY KEY NOT NULL,
     nombre VARCHAR(100) NOT NULL,
@@ -41,4 +45,15 @@ CREATE TABLE productos (
         
     CONSTRAINT fk_producto_subcategoria 
         FOREIGN KEY (subcategoria_id) REFERENCES subcategorias(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS historial (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    producto_id VARCHAR(36) NOT NULL,
+    campo_modificado VARCHAR(50) NOT NULL,
+    valor_anterior VARCHAR(255),
+    valor_nuevo VARCHAR(255),
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (producto_id) REFERENCES productos(id)
 );
