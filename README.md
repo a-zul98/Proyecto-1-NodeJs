@@ -1,4 +1,4 @@
-#Proyecto-1-NodeJs
+##Proyecto-1-NodeJs##
 
 1. **Ejecución de Proyecto**
    
@@ -36,7 +36,7 @@ almacenando:
 - Valor nuevo
 - Fecha de modificación
 
-  ## FUNCION EN PROCESO ##
+  (FUNCION EN PROCESO)
 **Reportes**
 
 Este sistema permite generar un reporte en formato CSV a partir
