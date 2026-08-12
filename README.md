@@ -1,15 +1,19 @@
 #Proyecto-1-NodeJs
 
-1. **Ejecución de Proyecto** 
+1. **Ejecución de Proyecto**
+   
   1.1 Clonar el repositorio:
    git clone https://github.com/a-zul98/Proyecto-1-NodeJs.git
+   
 1.2 Instalar dependencias:
    npm install
+   
 1.3 Ejecutar la aplicación.
   node app.js
  --> La inicialización de la base de datos se realiza automáticamente luego de ejecutar la aplicación.
+ 
 
-2. **Cómo probar APIs con Postman**
+3. **Cómo probar APIs con Postman**
   2.1. Esta aplicación está diseñada para realizar modificaciones en la tabla "productos".
    Ejemplo:
 **PUT** http://localhost:3000/productos/CAF-101-002
